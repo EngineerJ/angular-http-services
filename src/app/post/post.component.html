@@ -1,0 +1,26 @@
+<ng-progress
+    [positionUsing]="'marginLeft'"
+    [direction]="'leftToRightIncreased'"
+    [color]="'#008000'"
+    [trickleSpeed]="500" 
+    [thick]="true" 
+    [ease]="'easeInSine'"
+></ng-progress>
+<input 
+    (keyup.enter)="createPost(title)"
+    #title
+    type="text" 
+    class="form-control">
+<ul class="list-group">
+    <li 
+        *ngFor="let post of posts" 
+        class="list-group-item">
+        <button 
+            class="btn btn-secondary btn-sm"
+            (click)="updatePost(post)">Update</button>
+        <button 
+            class="btn btn-danger btn-sm"
+            (click)="deletePost(post)">Delete</button>
+        Post title: {{post.title}} 
+    </li>
+</ul>
